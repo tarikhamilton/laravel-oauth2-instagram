@@ -6,7 +6,7 @@
  * file that was distributed with this source code.
  *
  * @copyright Copyright (c) Ben Ramsey <ben@benramsey.com>
- * @license http://opensource.org/licenses/MIT MIT
+ * @license   http://opensource.org/licenses/MIT MIT
  */
 
 declare(strict_types=1);
@@ -36,9 +36,11 @@ class InstagramServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        $this->publishes([
+        $this->publishes(
+            [
             __DIR__ . '/config/instagram.php' => config_path('instagram.php'),
-        ]);
+            ]
+        );
     }
 
     /**
@@ -48,13 +50,17 @@ class InstagramServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->app->bind(LeagueInstagram::class, function ($app) {
-            return new LeagueInstagram([
-                'clientId' => config('instagram.clientId'),
-                'clientSecret' => config('instagram.clientSecret'),
-                'redirectUri' => config('instagram.redirectUri'),
-            ]);
-        });
+        $this->app->bind(
+            LeagueInstagram::class, function ($app) {
+                return new LeagueInstagram(
+                    [
+                    'clientId' => config('instagram.clientId'),
+                    'clientSecret' => config('instagram.clientSecret'),
+                    'redirectUri' => config('instagram.redirectUri'),
+                    ]
+                );
+            }
+        );
     }
 
     /**
