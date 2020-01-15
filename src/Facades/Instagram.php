@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of the ramsey/laravel-oauth2-instagram library
  *

@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Ramsey\Laravel\OAuth2\Instagram\Test\Facades;

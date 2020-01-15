@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of the ramsey/laravel-oauth2-instagram library
  *
@@ -51,7 +52,8 @@ class InstagramServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->app->bind(
-            LeagueInstagram::class, function ($app) {
+            LeagueInstagram::class,
+            function ($app) {
                 return new LeagueInstagram(
                     [
                     'clientId' => config('instagram.clientId'),
